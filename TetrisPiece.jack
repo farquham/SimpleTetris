@@ -1,0 +1,77 @@
+// Implements one of the 5? pieces
+class Piece {
+    field int x, y;
+    field int theta;
+    field int ptype
+    
+    // Constructs a new piece with default location and orientation
+    constructor Piece new(int typep) {
+        let x = 500;
+        let y = 500;
+        let theta = 360;
+        let ptype = typep; 
+        do draw();
+        return this;
+    }
+
+    // Disposes of this piece
+    method void dispose(){
+        de Memory.deAlloc(this);
+        return;
+    }
+
+    // Draws the piece on the screen
+    method void draw() {
+        if (ptype = 0) {
+            // draw shape zero
+        }
+        if (ptype = 1) {
+            // draw shape one
+        }
+        //etc.
+    }
+    
+    // Erases the piece from the screen
+    method void erase() {
+        if (ptype = 0) {
+        //etc. copy of draw but with opposite colours
+        }
+    }
+
+    // rotates the piece CW
+    method void rotCW() {
+        if (x < 254) {
+            do erase();
+            let theta = theta - 90 
+            do draw();
+        }
+        return;
+    }
+
+    // rotates the piece CCW
+    method void rotCCW() {
+        if (x < 254) {
+            do erase();
+            let theta = theta + 90
+            do draw();
+        }
+    }
+
+    method void moveRight() {
+        if (x < 510) {
+            do erase();
+            let x = x + 2;
+            do draw();
+        }
+        return;
+    }
+    
+    method void moveLeft() {
+        if (x > 1) {
+            do erase();
+            let x = x - 2;
+            do draw();
+        }
+        return;
+    }
+}

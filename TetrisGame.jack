@@ -1,0 +1,73 @@
+//**
+* Implements a simple black and white Tetris game
+* Only one level
+* Never Speeds up (same speed the entire time) (no piece dropping)
+* There will be a play area and score board, part types are pseudo random
+* Use the left and right arrow keys to move the piece, and the up and down arrow keys to rotate the piece
+* Press q to quit the game 
+
+class TetrisGame {
+    field TetrisPiece piece; // current block
+    field int control;
+ 
+    // Constructs a new Tetris Game
+    constructor TetrisGame new() {
+        // creates the play area and the score board
+        // and first part?
+        // ...
+        //!!!
+        let piece = Piece(1)
+        let control = 0;
+        return this;
+    }
+
+    // Disposes this game
+    method void dispost() {
+        do piece.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void movePiece() {
+        if (control = 1) { do piece.rotCCW(); }
+        if (control = 2) { do piece.rotCW(); }
+        if (control = 3) { do piece.moveLeft(); }
+        if (control = 4) { do piece.moveRight(); }
+        do Sys.wait(5); // delays next movement
+        return;
+    }
+
+    //method void dontmovePiece() {
+    //    if (control = 1) {do piece.stopAction(); }
+    //    do Sys.wait(5);
+    //    return;
+    //}
+
+    // Runs the game and handles the user inputs controls
+    method void run() {
+        var char key;  // key current pressed by user
+        var boolean exit;
+        let exit = false;
+
+        while (~exit) {
+            // waits for the key to be pressed
+            while (key = 0) {
+                let key = Keyboard.keyPressed();
+                do movePiece();
+            }
+            if (key = 81) { let exit = true; }  // q key
+             
+            if (key = 131) { let control = 1; }  // up arrow
+            if (key = 133) { let control = 2; }  // down arrow
+            if (key = 130) { let control = 3; }  // left arrow
+            if (key = 132) { let control = 4; }  // right arrow
+            
+            // waits for the key to be released
+            while(~(key = 0)) {
+                let key = Keyboard.keyPressed();
+                do movePiece();
+            }
+        }
+        return;
+    }
+}

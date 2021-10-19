@@ -1,0 +1,11 @@
+// provides some helper functions for the Tetris Game
+
+class TetrisHelper() {
+    function void block() {
+        // code to draw a block element of the tetris piece
+    }
+
+    function void env() {
+        // code to setup the play environment and score counter
+    }
+}
