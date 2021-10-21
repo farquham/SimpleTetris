@@ -22,7 +22,7 @@ class TetrisGame {
     }
 
     // Disposes this game
-    method void dispost() {
+    method void dispose() {
         do piece.dispose();
         do Memory.deAlloc(this);
         return;
@@ -37,11 +37,21 @@ class TetrisGame {
         return;
     }
 
-    //method void dontmovePiece() {
-    //    if (control = 1) {do piece.stopAction(); }
-    //    do Sys.wait(5);
-    //    return;
-    //}
+    method void movePieceDown() {
+        do piece.moveDown();
+        do Sys.wait(5);
+        return;
+    }
+
+    method void gameScore() {
+        // checks if all black line
+        // if yes:
+        // increases score
+        // delete line
+        // move above blocks down 
+        // if no: nothing
+        return;
+    }
 
     // Runs the game and handles the user inputs controls
     method void run() {

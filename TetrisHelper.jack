@@ -1,11 +1,148 @@
 // provides some helper functions for the Tetris Game
 
 class TetrisHelper() {
-    function void block() {
-        // code to draw a block element of the tetris piece
+    // int location -> screen array
+    // draws block at given location
+    function void drawBlock(int location) {
+        let memAddress = 16384+location;
+        // have this start at the upper left corner of the play area
+        // edit so location represents a number (0 to 159) 
+        // one of the 160 block locations on the board
+        // !!!
+        do Memory.poke(memAddress+0, 0);
+        do Memory.poke(memAddress+32, 32766);
+        do Memory.poke(memAddress+64, 32766);
+        do Memory.poke(memAddress+96, 32766);
+        do Memory.poke(memAddress+128, 32766);
+        do Memory.poke(memAddress+160, 32766);
+        do Memory.poke(memAddress+192, 32766);
+        do Memory.poke(memAddress+224, 32766);
+        do Memory.poke(memAddress+256, 32766);
+        do Memory.poke(memAddress+288, 32766);
+        do Memory.poke(memAddress+320, 32766);
+        do Memory.poke(memAddress+352, 32766);
+        do Memory.poke(memAddress+384, 32766);
+        do Memory.poke(memAddress+416, 32766);
+        do Memory.poke(memAddress+448, 32766);
+        do Memory.poke(memAddress+480, 0);
+        return;
     }
 
-    function void env() {
-        // code to setup the play environment and score counter
+    // int location -> screen array
+    // erases block at given x,y cords
+    function void eraseBlock(int location) {
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress+0, 0);
+        do Memory.poke(memAddress+32, 0);
+        do Memory.poke(memAddress+64, 0);
+        do Memory.poke(memAddress+96, 0);
+        do Memory.poke(memAddress+128, 0);
+        do Memory.poke(memAddress+160, 0);
+        do Memory.poke(memAddress+192, 0);
+        do Memory.poke(memAddress+224, 0);
+        do Memory.poke(memAddress+256, 0);
+        do Memory.poke(memAddress+288, 0);
+        do Memory.poke(memAddress+320, 0);
+        do Memory.poke(memAddress+352, 0);
+        do Memory.poke(memAddress+384, 0);
+        do Memory.poke(memAddress+416, 0);
+        do Memory.poke(memAddress+448, 0);
+        do Memory.poke(memAddress+480, 0);
+        return;
+    }
+
+    // __ -> screen array
+    // draws the play environment boundary, and the score counter label
+    function void drawPAS() {
+        function void setColor(true);
+        function void drawLine(63,15,383,15);
+        function void drawLine(63,239,383,239);
+        function void drawLine(63,15,63,239);
+        function void drawLine(383,15,383,239);
+        
+        function void moveCursor(1,51);
+        function void printString("Score: ");
+    }
+
+    // int -> screen array
+    // draws the current score next to the score label
+    function void drawCS(int score) {
+        function void moveCursor(1,58);
+        function void printInt(score);
+    }
+
+    // boolean -> screen array
+    // erases space and places the game over sign in the middle of the play area
+    function void gameOver() {
+        function void setColor(false);
+        function void drawRectangle(127,54,175,76);
+
+        function void setColor(true);
+        function void drawLine(127,54,127,76);
+        function void drawLine(175,54,175,76);
+        function void drawLine(127,54,175,54);
+        function void drawLine(127,76,175,76);
+        
+        function void moveCursor(5, 16);
+        function void printString("Game,");
+        function void println();
+        function void printString("Over!");
+    }
+
+    // record array -> row number int
+    // checks the entire play area for any completely black horizontal lines
+    function int blackRow(Array record) {
+        field int x, y, c, ans;
+        let x = 0;
+        let y = 0;
+        let c = 0;
+        let ans = 0;
+        while (y < 16) {
+            let c = 0;
+            let x = 0;
+            while (x < 10) {
+                if (record[(y*10)+x] = 1) {
+                    let c = c + 1;
+                }
+                else {
+                    let c = c;
+                }
+                let x = x + 1;
+            }
+            if (c = 10) {
+                let ans = y;
+                let y = 16;
+            }
+            else {
+                let y = y + 1;
+            }
+        }
+        return ans;
+    }
+
+    // record array -> record array
+    // erases the row found by blackRow function and moves everything above it down one
+    function Array scoreReset(Array record, int row) {
+        field int x, y;
+        let x = 0;
+        let y = row;
+        while (x < 10) {
+            let record[(row*10)+x] = 0
+            let x = x + 1
+        }
+        while (y > 0) {
+            while (x < 10) {
+                let record[(y*10)+x] = record[((y-1)*10)+x];
+                let x = x + 1
+            }
+            let y = y - 1;
+        }
+        // loop that reads record slot type and draws corresponding screen slot that color !!! 
+    }
+   
+    // record array -> boolean 
+    // checks if moving the piece in a direction is legal (doesn't overlap boundaries or another piece)
+    function legalMove() {
+        // !!!
     }
 }

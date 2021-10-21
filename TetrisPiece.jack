@@ -74,4 +74,13 @@ class Piece {
         }
         return;
     }
+    
+    method void moveDown() {
+        if (y < 254) {
+            do erase();
+            let y = y - 2;
+            do draw();
+        }
+        return;
+    }        
 }
