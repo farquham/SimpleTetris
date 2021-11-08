@@ -1,10 +1,12 @@
 // provides some helper functions for the Tetris Game
 
-class TetrisHelper() {
+class TetrisHelper {
     // int location -> screen array
     // draws block at given location
     function void drawBlock(int location) {
-        let memAddress = 16384+location;
+        var int memAddress, temploc;
+        let temploc = 14 + (location-((location/10)*10)) + ((location/10)*512);
+        let memAddress = 16384+temploc;
         // have this start at the upper left corner of the play area
         // edit so location represents a number (0 to 159) 
         // one of the 160 block locations on the board
@@ -31,7 +33,9 @@ class TetrisHelper() {
     // int location -> screen array
     // erases block at given x,y cords
     function void eraseBlock(int location) {
-        let memAddress = 16384+location;
+        var int memAddress, temploc;
+        let temploc = 14 + (location-((location/10)*10)) + ((location/10)*512);
+        let memAddress = 16384+temploc;
         do Memory.poke(memAddress+0, 0);
         do Memory.poke(memAddress+32, 0);
         do Memory.poke(memAddress+64, 0);
@@ -54,45 +58,40 @@ class TetrisHelper() {
     // __ -> screen array
     // draws the play environment boundary, and the score counter label
     function void drawPAS() {
-        function void setColor(true);
-        function void drawLine(63,15,383,15);
-        function void drawLine(63,239,383,239);
-        function void drawLine(63,15,63,239);
-        function void drawLine(383,15,383,239);
+        do Screen.setColor(true);
+        do Screen.drawLine(223,0,223,255);
+        do Screen.drawLine(384,0,384,255);
         
-        function void moveCursor(1,51);
-        function void printString("Score: ");
+        do Output.moveCursor(1,51);
+        do Output.printString("Score: ");
+        return;
     }
-
+    
     // int -> screen array
     // draws the current score next to the score label
     function void drawCS(int score) {
-        function void moveCursor(1,58);
-        function void printInt(score);
+        do Output.moveCursor(1,58);
+        do Output.printInt(score);
+        return;
     }
 
     // boolean -> screen array
     // erases space and places the game over sign in the middle of the play area
     function void gameOver() {
-        function void setColor(false);
-        function void drawRectangle(127,54,175,76);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(279,78,327,100);
 
-        function void setColor(true);
-        function void drawLine(127,54,127,76);
-        function void drawLine(175,54,175,76);
-        function void drawLine(127,54,175,54);
-        function void drawLine(127,76,175,76);
-        
-        function void moveCursor(5, 16);
-        function void printString("Game,");
-        function void println();
-        function void printString("Over!");
+        do Output.moveCursor(7, 36);
+        do Output.printString("Game,");
+        do Output.moveCursor(8, 36);
+        do Output.printString("Over!");
+        return;
     }
 
     // record array -> row number int
     // checks the entire play area for any completely black horizontal lines
     function int blackRow(Array record) {
-        field int x, y, c, ans;
+        var int x, y, c, ans;
         let x = 0;
         let y = 0;
         let c = 0;
@@ -103,8 +102,7 @@ class TetrisHelper() {
             while (x < 10) {
                 if (record[(y*10)+x] = 1) {
                     let c = c + 1;
-                }
-                else {
+                } else {
                     let c = c;
                 }
                 let x = x + 1;
@@ -112,8 +110,7 @@ class TetrisHelper() {
             if (c = 10) {
                 let ans = y;
                 let y = 16;
-            }
-            else {
+            } else {
                 let y = y + 1;
             }
         }
@@ -123,26 +120,56 @@ class TetrisHelper() {
     // record array -> record array
     // erases the row found by blackRow function and moves everything above it down one
     function Array scoreReset(Array record, int row) {
-        field int x, y;
+        var int x, y;
         let x = 0;
         let y = row;
         while (x < 10) {
-            let record[(row*10)+x] = 0
-            let x = x + 1
+            let record[((row*10)+x)] = 0;
+            let x = x + 1;
         }
+    
         while (y > 0) {
+            let x = 0;
             while (x < 10) {
-                let record[(y*10)+x] = record[((y-1)*10)+x];
-                let x = x + 1
+                let record[((y*10)+x)] = record[(((y-1)*10)+x)];
+                let x = x + 1;
             }
             let y = y - 1;
         }
-        // loop that reads record slot type and draws corresponding screen slot that color !!! 
+        
+        let x = 0;
+        while (x < 10) {
+            let record[x] = 0;
+            let x = x + 1;
+        }
+    
+        let y = 0;
+        while (y < 16) {
+            let x = 0;
+            while (x < 10) {
+                if (record[((y*10)+x)] = 1) {
+                    do TetrisHelper.drawBlock(((y*10)+x));
+                } else {
+                    do TetrisHelper.eraseBlock(((y*10)+x));
+                }
+                let x = x + 1;
+            }
+            let y = y + 1;
+        }
+        return record;
     }
-   
+
+    
     // record array -> boolean 
-    // checks if moving the piece in a direction is legal (doesn't overlap boundaries or another piece)
-    function legalMove() {
-        // !!!
-    }
+    // checks if moving the piece in a direction is legal (doesn't overlap another piece)
+    function legalMove(Array record, Array BP) {
+        var int i;
+        let i = 0;
+        while (i < 4) {
+            if (record[BP[i]] = 1) {
+                return false;
+            }
+        }
+        return true;  
+    }   
 }
