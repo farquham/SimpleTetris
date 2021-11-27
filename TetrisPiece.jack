@@ -10,7 +10,7 @@ class TetrisPiece {
         let y = 0;
         let theta = 0;
         let ptype = typep; 
-        let PP = Array.new(160);
+        let PP = Array.new(4);
         do draw();
         return this;
     }
@@ -29,10 +29,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock((y*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+0));
+            let PP[3] = (((y+1)*10)+(x+1));
             let h = 2;
             let w = 2;
         }
@@ -44,10 +44,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+3));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
-            let PP[(((y+0)*10)+(x+3))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+0)*10)+(x+2));
+            let PP[3] = (((y+0)*10)+(x+3));
             let h = 1;
             let w = 4;
         }
@@ -57,10 +57,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
-            let PP[(((y+2)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+2)*10)+(x+0));
+            let PP[3] = (((y+2)*10)+(x+1));
             let h = 3;
             let w = 2;
         }
@@ -70,10 +70,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+1))] = 1; 
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+1)); 
+            let PP[1] = (((y+1)*10)+(x+1));
+            let PP[2] = (((y+2)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+0));
             let h = 3;
             let w = 2; 
         }
@@ -83,10 +83,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+1))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+2))] = 1;
+            let PP[0] = (((y+0)*10)+(x+1)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+1)*10)+(x+2));
             let h = 2;
             let w = 3; 
         }
@@ -96,10 +96,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+1))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+1)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+0));
             let h = 3;
             let w = 2; 
         }
@@ -109,10 +109,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+1));
             let h = 3;
             let w = 2; 
         }
@@ -126,10 +126,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+3)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
-            let PP[(((y+3)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+2)*10)+(x+0));
+            let PP[3] = (((y+3)*10)+(x+0));
             let h = 4;
             let w = 1;
         }
@@ -139,10 +139,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+2));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
-            let PP[(((y+1)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+2))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
+            let PP[0] = (((y+1)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+2));
+            let PP[3] = (((y+0)*10)+(x+2));
             let h = 2;
             let w = 3;
         }
@@ -152,10 +152,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
-            let PP[(((y+1)*10)+(x+2))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+0)*10)+(x+2));
+            let PP[3] = (((y+1)*10)+(x+2));
             let h = 2;
             let w = 3; 
         }
@@ -165,10 +165,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+1))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+1)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+1));
             let h = 3;
             let w = 2;
         }
@@ -178,10 +178,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+2))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+1)*10)+(x+2));
             let h = 2;
             let w = 3; 
         }
@@ -191,10 +191,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
-            let PP[(((y+1)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
+            let PP[0] = (((y+1)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+0)*10)+(x+2));
             let h = 2;
             let w = 3; 
         } 
@@ -207,10 +207,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+3));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
-            let PP[(((y+0)*10)+(x+3))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+0)*10)+(x+2));
+            let PP[3] = (((y+0)*10)+(x+3));
             let h = 1;
             let w = 4;
         }
@@ -220,10 +220,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+1));
             let h = 3;
             let w = 2;
         }
@@ -233,10 +233,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+0));
+            let PP[3] = (((y+2)*10)+(x+0));
             let h = 3;
             let w = 2; 
         }
@@ -246,10 +246,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+0)*10)+(x+2));
+            let PP[3] = (((y+1)*10)+(x+1));
             let h = 2;
             let w = 3; 
         }
@@ -259,10 +259,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+1))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+1)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+0));
             let h = 3;
             let w = 2; 
         }
@@ -272,10 +272,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+2)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+2)*10)+(x+1));
             let h = 3;
             let w = 2; 
         }
@@ -288,10 +288,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+3)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
-            let PP[(((y+3)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+2)*10)+(x+0));
+            let PP[3] = (((y+3)*10)+(x+0));
             let h = 4;
             let w = 1;
         }
@@ -301,10 +301,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
-            let PP[(((y+1)*10)+(x+0))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+0)*10)+(x+2));
+            let PP[3] = (((y+1)*10)+(x+0));
             let h = 2;
             let w = 3;
         }
@@ -314,10 +314,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+2))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+1)*10)+(x+2));
             let h = 2;
             let w = 3; 
         }
@@ -327,10 +327,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+1)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+2)*10)+(x+0));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+1)*10)+(x+0))] = 1;
-            let PP[(((y+2)*10)+(x+0))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+1)*10)+(x+0));
+            let PP[2] = (((y+2)*10)+(x+0));
+            let PP[3] = (((y+1)*10)+(x+1));
             let h = 3;
             let w = 2; 
         }
@@ -340,10 +340,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+2))] = 1;
+            let PP[0] = (((y+0)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+1)*10)+(x+2));
             let h = 2;
             let w = 3; 
         }
@@ -353,10 +353,10 @@ class TetrisPiece {
             do TetrisHelper.drawBlock(((y+0)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+1)*10)+(x+1));
             do TetrisHelper.drawBlock(((y+0)*10)+(x+2));
-            let PP[(((y+1)*10)+(x+0))] = 1; 
-            let PP[(((y+0)*10)+(x+1))] = 1;
-            let PP[(((y+1)*10)+(x+1))] = 1;
-            let PP[(((y+0)*10)+(x+2))] = 1;
+            let PP[0] = (((y+1)*10)+(x+0)); 
+            let PP[1] = (((y+0)*10)+(x+1));
+            let PP[2] = (((y+1)*10)+(x+1));
+            let PP[3] = (((y+0)*10)+(x+2));
             let h = 2;
             let w = 3; 
         }
@@ -372,10 +372,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
         }
          
         if (Math.abs(theta/90) = 0) {
@@ -385,10 +381,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+3));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
-            let PP[(((y+0)*10)+(x+3))] = 0;
         }
         if (ptype = 2) {
             // erase L shape
@@ -396,10 +388,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
-            let PP[(((y+2)*10)+(x+1))] = 0;
         }
         if (ptype = 3) {
             // erase backwards L shape
@@ -407,10 +395,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+1))] = 0; 
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
         }
         if (ptype = 4) {
             // erase T shape
@@ -418,10 +402,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+1))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+2))] = 0;
         }
         if (ptype = 5) {
             // erase elbow shape
@@ -429,10 +409,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+1))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
         }
         if (ptype = 6) {
             // erase backwards elbow shape
@@ -440,10 +416,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+1))] = 0;
         }
         }
         
@@ -454,10 +426,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+3)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
-            let PP[(((y+3)*10)+(x+0))] = 0;
         }
         if (ptype = 2) {
             // erase L shape
@@ -465,10 +433,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+2));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
-            let PP[(((y+1)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+2))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
         }
         if (ptype = 3) {
             // erase backwards L shape
@@ -476,10 +440,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
-            let PP[(((y+1)*10)+(x+2))] = 0;
         }
         if (ptype = 4) {
             // erase T shape
@@ -487,10 +447,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+1))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+1))] = 0;
         }
         if (ptype = 5) {
             // erase elbow shape
@@ -498,10 +454,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+2))] = 0;
         }
         if (ptype = 6) {
             // erase backwards elbow shape
@@ -509,10 +461,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
-            let PP[(((y+1)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
         } 
         }
 
@@ -523,10 +471,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+3));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
-            let PP[(((y+0)*10)+(x+3))] = 0;
         }
         if (ptype = 2) {
             // erase L shape
@@ -534,10 +478,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+1))] = 0;
         }
         if (ptype = 3) {
             // erase backwards L shape
@@ -545,10 +485,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
         }
         if (ptype = 4) {
             // erase T shape
@@ -556,10 +492,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
         }
         if (ptype = 5) {
             // erase elbow shape
@@ -567,10 +499,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+1))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
         }
         if (ptype = 6) {
             // erase backwards elbow shape
@@ -578,10 +506,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+2)*10)+(x+1))] = 0;
         }
         }
 
@@ -592,10 +516,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+3)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
-            let PP[(((y+3)*10)+(x+0))] = 0;
         }
         if (ptype = 2) {
             // erase L shape
@@ -603,10 +523,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
-            let PP[(((y+1)*10)+(x+0))] = 0;
         }
         if (ptype = 3) {
             // erase backwards L shape
@@ -614,10 +530,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+2))] = 0;
         }
         if (ptype = 4) {
             // erase T shape
@@ -625,10 +537,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+2)*10)+(x+0));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+1)*10)+(x+0))] = 0;
-            let PP[(((y+2)*10)+(x+0))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
         }
         if (ptype = 5) {
             // erase elbow shape
@@ -636,10 +544,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+2));
-            let PP[(((y+0)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+2))] = 0;
         }
         if (ptype = 6) {
             // erase backwards elbow shape
@@ -647,10 +551,6 @@ class TetrisPiece {
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+1)*10)+(x+1));
             do TetrisHelper.eraseBlock(((y+0)*10)+(x+2));
-            let PP[(((y+1)*10)+(x+0))] = 0; 
-            let PP[(((y+0)*10)+(x+1))] = 0;
-            let PP[(((y+1)*10)+(x+1))] = 0;
-            let PP[(((y+0)*10)+(x+2))] = 0;
         }
         } 
 
@@ -712,7 +612,7 @@ class TetrisPiece {
     }
     
     method void moveDown() {
-        if ((y+h) < 16) {
+        if ((y+h) < 15) {
             do erase();
             let y = y + 1;
             do draw();

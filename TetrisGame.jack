@@ -1,23 +1,25 @@
 //**
-* Implements a simple black and white Tetris game
-* Only one level
-* Never Speeds up (same speed the entire time) (no piece dropping)
-* There will be a play area and score board, part types are pseudo random
-* Use the left and right arrow keys to move the piece, and the up and down arrow keys to rotate the piece
-* Press q to quit the game 
+//* Implements a simple black and white Tetris game
+//* Only one level
+//* Never Speeds up (same speed the entire time) (no piece dropping)
+//* There will be a play area and score board, part types are pseudo random
+//* Use the left and right arrow keys to move the piece, and the up and down arrow keys to rotate the piece
+//* Press q to quit the game 
 
 class TetrisGame {
     field TetrisPiece piece; // current block
-    field int control;
+    field int control, score;
+    field Array PA;
+    field boolean exists;
  
     // Constructs a new Tetris Game
     constructor TetrisGame new() {
-        // creates the play area and the score board
-        // and first part?
-        // ...
-        //!!!
-        let piece = Piece(1)
+        do TetrisHelper.PAS();
+        do TetrisHelper.CS(00000);        
+        let piece = TetrisPiece.new(0);
+        let exists = true;
         let control = 0;
+        let score = 0;
         return this;
     }
 
@@ -29,27 +31,45 @@ class TetrisGame {
     }
 
     method void movePiece() {
-        if (control = 1) { do piece.rotCCW(); }
-        if (control = 2) { do piece.rotCW(); }
-        if (control = 3) { do piece.moveLeft(); }
-        if (control = 4) { do piece.moveRight(); }
+        if (control = 1) { 
+        if (TetrisHelper.legalMove(PA, piece.PP)) {
+            do piece.rotCCW(); }}
+        if (control = 2) { 
+        if (TetrisHelper.legalMove(PA, piece.PP)) {
+            do piece.rotCW(); }}
+        if (control = 3) { 
+        if (TetrisHelper.legalMove(PA, piece.PP)) {
+            do piece.moveLeft(); }}
+        if (control = 4) { 
+        if (TetrisHelper.legalMove(PA, piece.PP)) {
+            do piece.moveRight(); }}
         do Sys.wait(5); // delays next movement
         return;
     }
 
     method void movePieceDown() {
-        do piece.moveDown();
+        if (TetrisHelper.legalMove(PA, piece.PP)) {
+            do piece.moveDown();
+        } else {
+            let exists = false; 
+        }
         do Sys.wait(5);
         return;
     }
 
     method void gameScore() {
+        var int row; 
         // checks if all black line
         // if yes:
         // increases score
         // delete line
         // move above blocks down 
         // if no: nothing
+        let row = TetrisHelper.blackRow(PA);
+        if (row > 0) {
+            let score = score + 100; 
+            do TetrisHelper.scoreReset(PA, row);
+        }
         return;
     }
 
@@ -57,14 +77,19 @@ class TetrisGame {
     method void run() {
         var char key;  // key current pressed by user
         var boolean exit;
+        var int pt;
+        let pt = 1;
         let exit = false;
 
         while (~exit) {
+            // while the piece exists
+            while (exists) { 
             // waits for the key to be pressed
             while (key = 0) {
                 let key = Keyboard.keyPressed();
-                do movePiece();
+                do movePieceDown();
             }
+            
             if (key = 81) { let exit = true; }  // q key
              
             if (key = 131) { let control = 1; }  // up arrow
@@ -72,11 +97,17 @@ class TetrisGame {
             if (key = 130) { let control = 3; }  // left arrow
             if (key = 132) { let control = 4; }  // right arrow
             
-            // waits for the key to be released
-            while(~(key = 0)) {
+            // if a key is pressed then do that action
+            if(~(key = 0)) {
                 let key = Keyboard.keyPressed();
                 do movePiece();
+                do movePieceDown();
             }
+            }
+            do gameScore();
+            let piece = TetrisPiece.new(pt);
+            let exists = true;
+            let pt = pt + 1; 
         }
         return;
     }

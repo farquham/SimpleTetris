@@ -159,14 +159,13 @@ class TetrisHelper {
         return record;
     }
 
-    
     // record array -> boolean 
     // checks if moving the piece in a direction is legal (doesn't overlap another piece)
-    function legalMove(Array record, Array BP) {
+    function legalMove(Array record, Array blockplace) {
         var int i;
         let i = 0;
         while (i < 4) {
-            if (record[BP[i]] = 1) {
+            if (record[blockplace[i]] = 1) {
                 return false;
             }
         }
